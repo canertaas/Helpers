@@ -1,12 +1,20 @@
-# Helpers
+## Helpers
 Helper functions I use frequently.
 
 
 
-# Data Manipulation
+## Discover and Visualize the Data
 
-# Statitic
+#### Exploratory Data Analysis
 
-# Visualization
+#### Visualization
 
-# Machine Learning
+``` 
+import missingno as msno
+
+msno.bar(mis_data, figsize=(10,10))
+```
+
+## Preprocessing
+
+## Machine Learning
