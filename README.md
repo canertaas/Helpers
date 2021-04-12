@@ -6,10 +6,10 @@ Helper functions I use frequently.
 ## Explore and Visualize the Data
 
 ##### Exploratory Data Analysis
-`
+``
 #Showing pairwise relationships in a dataset
 sns.pairplot(df, hue="x", kind="reg", palette="husl")
-`
+``
 
 ````
 #Subplotting with histogram, violin plot and box plot
