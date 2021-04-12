@@ -6,7 +6,7 @@ Helper functions I use frequently.
 ## Explore and Visualize the Data
 
 ##### Exploratory Data Analysis
-```
+```python
 #Showing pairwise relationships in a dataset
 sns.pairplot(df, hue="x", kind="reg", palette="husl")
 ```
