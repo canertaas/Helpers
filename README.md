@@ -11,7 +11,7 @@ Helper functions I use frequently.
 sns.pairplot(df, hue="x", kind="reg", palette="husl")
 ```
 
-````
+````python
 #Subplotting with histogram, violin plot and box plot
 f, axes = plt.subplots(4, 3, figsize=(15, 15))
 sns.despine(right=True)
@@ -23,7 +23,7 @@ for i in range(4):
     count=count+1
 ````
 
-````
+````python
 #Normality checking with QQ Plot
 import statsmodels.api as sm 
 
@@ -31,7 +31,7 @@ sm.qqplot(df.iloc[:,count], line="s")
 
 ````
 
-````
+````python
 #Number of outliers in each column
 numeric_columns=["x","y"]
 for columns in numeric_columns:
@@ -44,7 +44,7 @@ for columns in numeric_columns:
     print("number of outliers in", columns, ":", (len(outliers))) 
 ````
 
-````
+````python
 #To see the effect of outliers on mean and standard deviation in selecting the column
 remove_outliers=df[(df["x"] >= q1-1.5*iqr ) &(df["x"] <=  q3+ 1.5*iqr)]["x"]
 mean_change= (np.mean(df["x"]) - np.mean(remove_outliers) )/ np.mean(df["x"])
@@ -53,7 +53,7 @@ print("change in mean: %.2f "% mean_change)
 print("change in std: %.2f "% std_change)
 ````
 ##### Correlation
-````
+````python
 #Finding the relations between the variables with correlation matrix.
 plt.figure(figsize=(10,10))
 correlation = df.corr()
@@ -61,7 +61,7 @@ sns.heatmap(correlation, cmap= "BrBG", annot= True)
 plt.show()
 ````
 
-````
+````python
 #Looking Pearson Correlation of two varaibles
 from scipy.stats import pearsonr
 
@@ -69,7 +69,7 @@ corr, p_value = pearsonr(df["x"],df["y"])
 print("Pearsons correlation: %.6f" % corr)
 ````
 ##### Missing Data
-````
+````python
 #Show the missing data in a bar chart
 import missingno as msno
 
@@ -84,7 +84,7 @@ msno.heatmap(df)
 
 ## Preprocessing
 ##### Encoders
-````
+````python
 #Label Encoder
 from sklearn.preprocessing import LabelEncoder
 
@@ -92,7 +92,7 @@ le = preprocessing.LabelEncoder()
 df["x_label"] = le.fit_transform(df["x"]) 
 ````
 
-````
+````python
 #One Hot Encoder
 from sklearn.preprocessing import OneHotEncoder
 
@@ -104,7 +104,7 @@ df_ohe = df.merge(df_add, left_index=True, right_index=True)
 ````
 
 ##### Scaling
-````
+````python
 #Use it in a normal distribution
 from sklearn.preprocessing import StandardScaler
 
@@ -113,7 +113,7 @@ scaled_data=standardscaler.fit_transform(df)
 scaled_data=pd.DataFrame(scaled_data, columns=df.columns)
 ````
 
-````
+````python
 from sklearn.preprocessing import MinMaxScaler
 
 scaler= MinMaxScaler()
